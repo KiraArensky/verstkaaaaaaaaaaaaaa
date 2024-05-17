@@ -1,0 +1,26 @@
+.class {
+  padding: 80px 0;
+  background-color: #DFE1FF;
+  @media screen and (max-width: $sm) {
+    background-color: #fff;
+    padding-top: 60px;
+    padding-bottom: 0;
+    img {
+      padding: 50px 10px;
+      box-shadow: 0px 10px 50px 0px #4047E233;
+    }
+  }
+
+  pre {
+    padding-top: 28px;
+    @media screen and (max-width: $lg) {
+      padding-top: 25px;
+    }
+  }
+
+  @media screen and (max-width: $lg) {
+    img {
+      padding-top: 30px;
+    }
+  }
+}

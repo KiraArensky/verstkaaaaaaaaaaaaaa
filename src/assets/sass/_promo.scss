@@ -1,0 +1,117 @@
+.promo {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @media screen and (max-width: $lg) {
+    img {
+      padding-top: 15px;
+    }
+  }
+  .promo-mobile {
+    display: none;
+  }
+  @media screen and (max-width: $sm) {
+    padding-top: 60px;
+    padding-bottom: 0;
+    .promo-desktop {
+      display: none;
+    }
+    .promo-mobile {
+      display: block;
+      width: 100%;
+    }
+  }
+
+
+
+  h1 {
+    padding-top: 56px;
+    @media screen and (max-width: $lg) {
+        padding-top: 0;
+    }
+  }
+  p {
+    padding-top: 16px;
+    color: $gray;
+    @media screen and (max-width: $sm) {
+      padding-top: 18px;
+    }
+  }
+
+  .promo__buttons{
+    display: flex;
+    gap: 20px;
+    padding-top: 19px;
+    font-size: 16px;
+    @media screen and (max-width: $sm) {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding-top: 26px;
+    }
+
+    .button-lesson {
+      padding: 13px 32.5px;
+      border-radius: 10px;
+      border: none;
+      background-color: $main;
+      color: white;
+      transition: background-color 0.5s, color 0.5s;
+      @media screen and (max-width: $xxl) {
+        padding: 8px 12px;
+      }
+      @media screen and (max-width: $sm) {
+        align-items: center;
+        width: 100%;
+        white-space: nowrap;
+      }
+
+      &:hover {
+        background-color: white;
+        color: $main;
+        border: 1px solid $main;
+        padding: 12px 31.5px;
+        @media screen and (max-width: $xxl) {
+          padding: 7px 11px;
+        }
+
+      }
+    }
+
+    .button-demo {
+      padding: 12px 30px;
+      border-radius: 10px;
+      border: 1px solid $main;
+      background-color: white;
+      color: $main;
+      transition: background-color 0.5s, color 0.5s;
+      @media screen and (max-width: $xxl) {
+        padding: 8px 12px;
+      }
+      @media screen and (max-width: $sm) {
+        align-items: center;
+        width: 100%;
+        white-space: nowrap;
+      }
+
+      .button-demo__img {
+        padding-right: 10px;
+        transition: fill 0.5s;
+        fill: $main;
+        @media screen and (max-width: $sm) {
+          width: 24px;
+          height: 20px;
+        }
+      }
+
+      &:hover {
+        background-color: $main;
+        color: white;
+        .button-demo__img {
+          fill: white;
+        }
+      }
+    }
+  }
+
+}
