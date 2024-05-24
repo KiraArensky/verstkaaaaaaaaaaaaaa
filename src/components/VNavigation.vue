@@ -1,16 +1,40 @@
 <script setup>
-import { ref } from 'vue';
+import {ref, watch} from 'vue';
 
 const sidebarOpen = ref(false);
+let scrollPosition = 0;
 
 const toggleSidebar = () => {
   sidebarOpen.value = !sidebarOpen.value;
 };
+
+watch(sidebarOpen, (newValue) => {
+  // Если newValue истинно, то aside открыт
+  if (newValue) {
+    // Сохраняем текущую позицию прокрутки
+    scrollPosition = window.pageYOffset;
+    // Устанавливаем стиль body так, чтобы прокрутка была заблокирована
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+  } else {
+    // Если newValue ложно, то aside закрыт
+    // Удаляем стили, которые мы установили ранее, чтобы разблокировать прокрутку
+    document.body.style.removeProperty('overflow');
+    document.body.style.removeProperty('position');
+    document.body.style.removeProperty('top');
+    document.body.style.removeProperty('width');
+    // Возвращаем прокрутку на место, где она была до открытия aside
+    window.scrollTo(0, scrollPosition);
+  }
+});
 </script>
+
 
 <template>
   <header>
-    <nav class="navigation">
+  <nav class="navigation">
       <div class="container">
         <div class="navigation__wrapp">
           <img src="/logo.svg" alt="logo">
